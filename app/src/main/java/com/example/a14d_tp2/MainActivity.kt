@@ -1,6 +1,10 @@
 package com.example.a14d_tp2
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -31,5 +35,25 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    // Création du menu
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.bottom_nav_menu, menu)
+        return true
+    }
+
+    // Actions sur les items du menu
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.mn_admin -> {
+                intent = Intent(this, AdminActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(this, "admin", Toast.LENGTH_SHORT).show()
+                return true
+
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
