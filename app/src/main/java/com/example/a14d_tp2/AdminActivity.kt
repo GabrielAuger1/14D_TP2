@@ -13,7 +13,7 @@ class AdminActivity : AppCompatActivity() {
         setContentView(R.layout.activity_admin)
 
 
-        val toolbar = findViewById<Toolbar>(R.id.)
+        val toolbar = findViewById<Toolbar>(R.id.tbar)
         setSupportActionBar(toolbar)
 
         // Titre et sous-titre
