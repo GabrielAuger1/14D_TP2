@@ -2,8 +2,10 @@ package com.example.a14d_tp2
 
 import android.content.Intent
 import android.os.Bundle
+import android.renderscript.ScriptGroup.Binding
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Switch
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -20,16 +22,20 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_admin)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-       val navView: BottomNavigationView = binding.navView
+        val navView: BottomNavigationView = binding.navView
 
-        //Bouton switch main/admin
-        val toolbar = findViewById<Toolbar>(R.id.tbar)
+        //Déclaration du Toolbar
+        val toolbar = binding.toolbar
         setSupportActionBar(toolbar)
+
+        // Déclaration du bouton switch
+        val btnSwitch = binding.tbar
+
+
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
@@ -42,22 +48,17 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        // Bouton retour
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-    }
-
-
-    // Actions sur les items du bouton switch
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.mn_admin -> {
+        // Actions sur les items du bouton switch
+        btnSwitch.setOnCheckedChangeListener{ _, isChecked ->
+            if(isChecked) {
                 intent = Intent(this, AdminActivity::class.java)
                 startActivity(intent)
-                Toast.makeText(this, "admin", Toast.LENGTH_SHORT).show()
-                return true
-
             }
         }
-        return super.onOptionsItemSelected(item)
     }
+
+
+
+
 }
+
