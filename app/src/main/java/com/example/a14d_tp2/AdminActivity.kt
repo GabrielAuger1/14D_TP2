@@ -18,7 +18,7 @@ class AdminActivity : AppCompatActivity() {
 
         // Titre et sous-titre
         supportActionBar?.title = "Admin"
-        supportActionBar?.subtitle = "A2024"
+
 
         // Bouton retour
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
