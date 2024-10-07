@@ -14,4 +14,13 @@ data class Item(
 
     @ColumnInfo(name = "description")
     val description: String,
-)
+
+    @ColumnInfo(name = "prix")
+    val prix: Double,
+
+    @ColumnInfo(name = "categorie")
+    val categorie: String
+) {
+    constructor(id: Int, nom: String, description: String) : this(id, nom, description, 0.0, "Autre"
+    )
+}
