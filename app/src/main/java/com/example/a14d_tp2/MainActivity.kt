@@ -48,6 +48,8 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+
+
         // Actions sur les items du bouton switch
         btnSwitch.setOnCheckedChangeListener{ _, isChecked ->
             if(isChecked) {
